@@ -1,10 +1,7 @@
 # Friday Night Funkin on android
 
-check releases to download apk
-
-Download:
-
-https://github.com/luckydog7/Funkin-android/releases
+Currently no releases.
+Built off of https://github.com/luckydog7/Funkin-android
 
 
 
