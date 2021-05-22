@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'practice: off', 'full combo mode: off', 'Optimization Options' 'About'];
+	var menuItems:Array<String> = ['Remove gf: off', 'remove bgs: off', 'optimized character sprites: off', 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;
@@ -39,11 +39,16 @@ class OptionsMenu extends MusicBeatState
 
 	var config:Config = new Config();
 
+	// optimization shit vars :RllyCool:
+	public var gfdied:Bool = false;
+	public var removedbgs:Bool = false;
+	public var optichar:Bool = false;
+
 	override function create()
 	{
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuDesat.png');
 		//controlsStrings = CoolUtil.coolTextFile('assets/data/controls.txt');
-		menuBG.color = 0xFFea71fd;
+		menuBG.color = FlxColor.fromRGB(68, 11, 99);
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
@@ -103,32 +108,28 @@ class OptionsMenu extends MusicBeatState
 			var daSelected:String = menuItems[curSelected];
 
 			switch (daSelected)
-			{
-				case "controls":
-					FlxG.switchState(new options.CustomControlsState());
-				
-				case "config":
-					trace("hello");
-				
-				case "set fps":
-					insubstate = true;
-					openSubState(new options.SetFpsSubState());
-				
-				case "downscroll: on" | "downscroll: off":
-					config.setdownscroll();
+			{	
+				case "remove gf: on" | "remove gf: off":
+					if (gfdied) {
+					gfdied = false; }
+					else {
+					gfdied = true; }
 					FlxG.resetState();
-				
-				case "practice: on" | "practice: off":
-				    config.setpractice();
-				    FlxG.resetState();
-				
-				case "full combo mode: on" | "full combo mode: off":
-				    config.setfcmode();
-				    FlxG.resetState();
-				
-				case "Optimization Options":
-				    FlxG.switchState(new options.OptimizedMenu());
-				
+
+				case "remove bgs: on" | "remove bgs: off"
+				    if (removedbgs) {
+					removedbgs = false; }
+					else {
+					removedbgs = true; }
+					FlxG.resetState();
+
+				case "optimized character sprites: on" | "optimized character sprites: off"
+				    if (optichar) {
+					optichar = false; }
+					else {
+					optichar = true; }
+					FlxG.resetState();
+
 				case "About":
 					FlxG.switchState(new options.AboutState());
 			}

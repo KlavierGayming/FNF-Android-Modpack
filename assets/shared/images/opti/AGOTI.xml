@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="AGOTI_OPTIMIZED.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Agoti_Down0000" x="0" y="0" width="602" height="658"/>
+	<SubTexture name="Agoti_Idle0000" x="602" y="0" width="474" height="850"/>
+	<SubTexture name="Agoti_Left0000" x="1076" y="0" width="811" height="883"/>
+	<SubTexture name="Agoti_Right0000" x="0" y="883" width="791" height="886"/>
+	<SubTexture name="Agoti_Up0000" x="791" y="883" width="500" height="947"/>
+</TextureAtlas>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="sarv_angry.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="638" height="735"/>
+	<SubTexture name="idle0000" x="638" y="0" width="471" height="798"/>
+	<SubTexture name="left0000" x="1109" y="0" width="525" height="798"/>
+	<SubTexture name="right0000" x="0" y="798" width="503" height="798"/>
+	<SubTexture name="up0000" x="503" y="798" width="508" height="824"/>
+</TextureAtlas>

@@ -26,7 +26,6 @@ class Config {
         if (save.data.isdownscroll != null) return save.data.isdownscroll;
         return false;
     }
-
 //practice
     public function setpractice(?value:Bool):Bool {
 		if (save.data.ispractice == null) save.data.ispractice = false;

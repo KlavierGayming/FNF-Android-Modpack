@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="kapi.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="611" height="629"/>
+	<SubTexture name="idle0000" x="611" y="0" width="586" height="624"/>
+	<SubTexture name="left0000" x="1197" y="0" width="611" height="629"/>
+	<SubTexture name="right0000" x="0" y="629" width="611" height="629"/>
+	<SubTexture name="up0000" x="611" y="629" width="611" height="629"/>
+</TextureAtlas>

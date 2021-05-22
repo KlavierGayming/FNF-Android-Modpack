@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="ruv.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="547" height="798"/>
+	<SubTexture name="idle0000" x="547" y="0" width="524" height="798"/>
+	<SubTexture name="left0000" x="1071" y="0" width="524" height="798"/>
+	<SubTexture name="right0000" x="0" y="798" width="524" height="798"/>
+	<SubTexture name="up0000" x="524" y="798" width="587" height="825"/>
+</TextureAtlas>

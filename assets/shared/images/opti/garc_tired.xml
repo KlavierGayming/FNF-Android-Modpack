@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="garc_tired.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="cough0000" x="0" y="0" width="532" height="690"/>
+	<SubTexture name="down0000" x="532" y="0" width="377" height="623"/>
+	<SubTexture name="idle0000" x="909" y="0" width="447" height="650"/>
+	<SubTexture name="left0000" x="1356" y="0" width="362" height="632"/>
+	<SubTexture name="right0000" x="0" y="690" width="366" height="643"/>
+	<SubTexture name="up0000" x="366" y="690" width="437" height="673"/>
+</TextureAtlas>

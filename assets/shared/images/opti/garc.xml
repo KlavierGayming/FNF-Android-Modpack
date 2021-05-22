@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="garc.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="388" height="620"/>
+	<SubTexture name="idle0000" x="388" y="0" width="382" height="668"/>
+	<SubTexture name="left0000" x="770" y="0" width="382" height="668"/>
+	<SubTexture name="right0000" x="1152" y="0" width="382" height="668"/>
+	<SubTexture name="up0000" x="1534" y="0" width="382" height="668"/>
+</TextureAtlas>

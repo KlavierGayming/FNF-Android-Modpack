@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="whaccman.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="down0000" x="0" y="0" width="527" height="509"/>
+	<SubTexture name="idle0000" x="527" y="0" width="518" height="486"/>
+	<SubTexture name="left0000" x="1045" y="0" width="527" height="417"/>
+	<SubTexture name="right0000" x="0" y="509" width="527" height="417"/>
+	<SubTexture name="up0000" x="527" y="509" width="497" height="560"/>
+</TextureAtlas>

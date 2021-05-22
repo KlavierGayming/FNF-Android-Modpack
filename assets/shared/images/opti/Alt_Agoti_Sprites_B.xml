@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="AGOTI_ANGRY_OPTIMIZED.png">
+	<!-- Created with Adobe Animate version 21.0.6.41649 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="Angry_Agoti_Down0000" x="0" y="0" width="733" height="546"/>
+	<SubTexture name="Angry_Agoti_Idle0000" x="733" y="0" width="582" height="674"/>
+	<SubTexture name="Angry_Agoti_Left0000" x="1315" y="0" width="663" height="598"/>
+	<SubTexture name="Angry_Agoti_Right0000" x="0" y="674" width="847" height="689"/>
+	<SubTexture name="Angry_Agoti_Up0000" x="847" y="674" width="626" height="811"/>
+</TextureAtlas>

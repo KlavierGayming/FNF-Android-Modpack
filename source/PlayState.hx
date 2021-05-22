@@ -322,7 +322,8 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
-
+    if (!removedbgs)
+	{
 		switch (SONG.song.toLowerCase())
 		{
                         case 'spookeez' | 'monster' | 'south': 
@@ -859,6 +860,41 @@ class PlayState extends MusicBeatState
 		                  add(stageCurtains);
 		          }
               }
+		}
+		else
+	    {
+			switch (SONG.song.toLowerCase())
+		    case 'worship' | 'zavodila' | 'parish' | 'gospel' | 'release' | 'nerves' | 'headache'
+		    {
+				defaultCamZoom = 0.9;
+				curStage = 'stage';
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('bg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.active = false;
+				add(bg);
+			}
+			case 'casanova' | 'foolhardy' | 'foolhardy-retrospecter' | 'popipo' | 'aishite' | 'siu' | 'disappearance'
+		    {
+				defaultCamZoom = 0.9;
+				curStage = 'stage2';
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('bg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.active = false;
+				add(bg);
+			}
+			case 'norway' | 'tordbot' | 'wocky' | 'beathoven' | 'flatzone' | 'screenplay' | 'parasite' | 'a.g.o.t.i' | 'gacha-life'
+		    {
+				defaultCamZoom = 0.9;
+				curStage = 'stage3';
+				var bg:FlxSprite = new FlxSprite(-600, -200).loadGraphic(Paths.image('bg'));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.9, 0.9);
+				bg.active = false;
+				add(bg);
+			}
+		}
 
 		var gfVersion:String = 'gf';
 
