@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['Remove gf: off', 'remove bgs: off', 'optimized character sprites: off', 'About'];
+	var menuItems:Array<String> = ['remove bgs: off', 'optimized character sprites: off', 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;
@@ -109,21 +109,14 @@ class OptionsMenu extends MusicBeatState
 
 			switch (daSelected)
 			{	
-				case "remove gf: on" | "remove gf: off":
-					if (gfdied) {
-					gfdied = false; }
-					else {
-					gfdied = true; }
-					FlxG.resetState();
-
-				case "remove bgs: on" | "remove bgs: off"
+				case "remove bgs: on" | "remove bgs: off":
 				    if (removedbgs) {
 					removedbgs = false; }
 					else {
 					removedbgs = true; }
 					FlxG.resetState();
 
-				case "optimized character sprites: on" | "optimized character sprites: off"
+				case "optimized character sprites: on" | "optimized character sprites: off":
 				    if (optichar) {
 					optichar = false; }
 					else {

@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'practice: off', 'full combo mode: off', 'Optimization Options' 'About'];
+	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'practice: off', 'full combo mode: off', 'Optimization Options', 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;

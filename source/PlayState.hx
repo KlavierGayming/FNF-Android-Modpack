@@ -41,6 +41,7 @@ import lime.utils.Assets;
 import openfl.display.BlendMode;
 import openfl.display.StageQuality;
 import openfl.filters.ShaderFilter;
+import options.OptimizedOptions;
 #if mobile
 import Mobilecontrols;
 #end
@@ -322,7 +323,7 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
-    if (!removedbgs)
+    if (!options.OptimizedOptions.removedbgs)
 	{
 		switch (SONG.song.toLowerCase())
 		{
@@ -864,7 +865,8 @@ class PlayState extends MusicBeatState
 		else
 	    {
 			switch (SONG.song.toLowerCase())
-		    case 'worship' | 'zavodila' | 'parish' | 'gospel' | 'release' | 'nerves' | 'headache'
+		    {
+		    case 'worship' | 'zavodila' | 'parish' | 'gospel' | 'release' | 'nerves' | 'headache':
 		    {
 				defaultCamZoom = 0.9;
 				curStage = 'stage';
@@ -874,7 +876,7 @@ class PlayState extends MusicBeatState
 				bg.active = false;
 				add(bg);
 			}
-			case 'casanova' | 'foolhardy' | 'foolhardy-retrospecter' | 'popipo' | 'aishite' | 'siu' | 'disappearance'
+			case 'casanova' | 'foolhardy' | 'foolhardy-retrospecter' | 'popipo' | 'aishite' | 'siu' | 'disappearance':
 		    {
 				defaultCamZoom = 0.9;
 				curStage = 'stage2';
@@ -884,7 +886,7 @@ class PlayState extends MusicBeatState
 				bg.active = false;
 				add(bg);
 			}
-			case 'norway' | 'tordbot' | 'wocky' | 'beathoven' | 'flatzone' | 'screenplay' | 'parasite' | 'a.g.o.t.i' | 'gacha-life'
+			case 'norway' | 'tordbot' | 'wocky' | 'beathoven' | 'flatzone' | 'screenplay' | 'parasite' | 'a.g.o.t.i' | 'gacha-life':
 		    {
 				defaultCamZoom = 0.9;
 				curStage = 'stage3';
@@ -894,6 +896,7 @@ class PlayState extends MusicBeatState
 				bg.active = false;
 				add(bg);
 			}
+		    }
 		}
 
 		var gfVersion:String = 'gf';
@@ -1188,7 +1191,7 @@ class PlayState extends MusicBeatState
         add(scoreTxt);
 
 	    // Add Kade Engine watermark
-		kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + (" - HD PORTED BY ZACK N KLAV ") +  : "", 16);
+		var kadeEngineWatermark = new FlxText(4,healthBarBG.y + 50,0,SONG.song + " " + (storyDifficulty == 2 ? "Hard" : storyDifficulty == 1 ? "Normal" : "Easy") + " - MADE BY K&Z", 16);
 		kadeEngineWatermark.setFormat(Paths.font("vcr.ttf"), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE,FlxColor.BLACK);
 		kadeEngineWatermark.scrollFactor.set();
 		add(kadeEngineWatermark);
