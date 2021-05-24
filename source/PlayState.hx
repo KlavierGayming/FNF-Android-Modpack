@@ -95,6 +95,7 @@ class PlayState extends MusicBeatState
 	private var scaryasfuk:Bool = false;
 	private var shakeCam:Bool = false;
 	private var TrailM:Bool = false;
+	private var isDebug:Bool = false;
 
 	private var iconP1:HealthIcon;
 	private var iconP2:HealthIcon;
@@ -144,6 +145,20 @@ class PlayState extends MusicBeatState
 	var detailsText:String = "";
 	var detailsPausedText:String = "";
 	#end
+
+	// Debug mode stuff. I just need this so it's easier to test...
+	#if debug
+	isDebug = true;
+	#end
+
+	//Optimization be like.
+	var opti:options.OptimizedOptions;
+	var removedbgs:Bool = false;
+	var nocut:Bool = false;
+
+
+
+	
 
 	
 	#if mobile
@@ -202,7 +217,11 @@ class PlayState extends MusicBeatState
         fcmode_enable = mcontrols.fcmode_enable;
 		#end
 
-		
+        
+		opti = new options.OptimizedOptions();
+		removedbgs = opti.removedbgs;
+		opti = new options.OptimizedOptions();
+		nocut = opti.nocut;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -323,7 +342,7 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
-    if (!options.OptimizedOptions.removedbgs)
+    if (!removedbgs)
 	{
 		switch (SONG.song.toLowerCase())
 		{
@@ -1220,8 +1239,8 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
-		if (isStoryMode)
-		{
+	    if (isStoryMode || OptionsMenu.cuteverywhere || isDebug)
+	    {
 			switch (curSong.toLowerCase())
 			{
 				case "winter-horrorland":
@@ -1302,16 +1321,25 @@ class PlayState extends MusicBeatState
 				default:
 					startCountdown();
 			}
+		
+	    }
+	    else if (nocut)
+	    { 
+		    switch (curSong.toLowerCase())
+            {
+		        default:
+			        startCountdown();
+	 	    }
 		}
 		else
-		{
+		{ 
 			switch (curSong.toLowerCase())
 			{
-				default:
-					startCountdown();
+			default:
+				startCountdown();
 			}
 		}
-
+	{
 		super.create();
 	}
     function mikuIntro(?dialogueBox:DialogueBox):Void

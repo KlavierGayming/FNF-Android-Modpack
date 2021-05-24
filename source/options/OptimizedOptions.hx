@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['remove bgs: off', 'optimized character sprites: off', 'About'];
+	var menuItems:Array<String> = ['remove bgs: off', 'optimized character sprites: off', '' 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;
@@ -43,12 +43,13 @@ class OptionsMenu extends MusicBeatState
 	public var gfdied:Bool = false;
 	public var removedbgs:Bool = false;
 	public var optichar:Bool = false;
+	public var nocut:Bool = false;
 
 	override function create()
 	{
 		var menuBG:FlxSprite = new FlxSprite().loadGraphic('assets/images/menuDesat.png');
 		//controlsStrings = CoolUtil.coolTextFile('assets/data/controls.txt');
-		menuBG.color = FlxColor.fromRGB(68, 11, 99);
+		menuBG.color = 0xFFea71fd;
 		menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
 		menuBG.updateHitbox();
 		menuBG.screenCenter();
@@ -121,6 +122,13 @@ class OptionsMenu extends MusicBeatState
 					optichar = false; }
 					else {
 					optichar = true; }
+					FlxG.resetState();
+
+				case "remove cutscenes: on" | "remove cutscenes: off":
+					if (nocut) {
+					nocut = false; }
+					else {
+					nocut = true; }
 					FlxG.resetState();
 
 				case "About":
