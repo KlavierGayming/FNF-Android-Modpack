@@ -151,11 +151,6 @@ class PlayState extends MusicBeatState
 	isDebug = true;
 	#end
 
-	//Optimization be like.
-	var opti:options.OptimizedOptions;
-	var removedbgs:Bool = false;
-	var nocut:Bool = false;
-
 
 
 	
@@ -218,10 +213,6 @@ class PlayState extends MusicBeatState
 		#end
 
         
-		opti = new options.OptimizedOptions();
-		removedbgs = opti.removedbgs;
-		opti = new options.OptimizedOptions();
-		nocut = opti.nocut;
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -342,7 +333,7 @@ class PlayState extends MusicBeatState
 		// Updating Discord Rich Presence.
 		DiscordClient.changePresence(detailsText, SONG.song + " (" + storyDifficultyText + ")", iconRPC);
 		#end
-    if (!removedbgs)
+    if (!OptimizedOptions.removedbgs)
 	{
 		switch (SONG.song.toLowerCase())
 		{
@@ -1323,7 +1314,7 @@ class PlayState extends MusicBeatState
 			}
 		
 	    }
-	    else if (nocut)
+	    else if (OptimizedOptions.nocut)
 	    { 
 		    switch (curSong.toLowerCase())
             {
