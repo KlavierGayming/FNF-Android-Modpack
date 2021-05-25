@@ -18,13 +18,9 @@ class Character extends FlxSprite
 
 	public var holdTimer:Float = 0;
 
-	//Optimization goes brrrrrrrrrrrrr
-	var opti:OptimizedOptions;
-    var optichar:Bool = false;
 
-	opti = new OptimizedOptions();
-	optichar = opti.optichar;
-	//End of optimization :SadCri:
+
+
 
 	public function new(x:Float, y:Float, ?character:String = "bf", ?isPlayer:Bool = false)
 	{
@@ -36,7 +32,7 @@ class Character extends FlxSprite
 
 		var tex:FlxAtlasFrames;
 		antialiasing = true;
-    if (!optichar)
+    if (!OptimizedOptions.optichar)
 	{	
 		switch (curCharacter)
 		{
