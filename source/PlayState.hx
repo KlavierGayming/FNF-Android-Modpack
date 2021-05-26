@@ -146,10 +146,7 @@ class PlayState extends MusicBeatState
 	var detailsPausedText:String = "";
 	#end
 
-	// Debug mode stuff. I just need this so it's easier to test...
-	#if debug
-	isDebug = true;
-	#end
+
 
 
 
@@ -212,7 +209,10 @@ class PlayState extends MusicBeatState
         fcmode_enable = mcontrols.fcmode_enable;
 		#end
 
-        
+        // Debug mode stuff. I just need this so it's easier to test...
+	    #if debug
+	    isDebug = true;
+	    #end
 
 		// var gameCam:FlxCamera = FlxG.camera;
 		camGame = new FlxCamera();
@@ -1230,7 +1230,7 @@ class PlayState extends MusicBeatState
 		// cameras = [FlxG.cameras.list[1]];
 		startingSong = true;
 
-	    if (isStoryMode || OptionsMenu.cuteverywhere || isDebug)
+	    if (isStoryMode && !OptimizedOptions.nocut || OptionsMenu.cuteverywhere && !OptimizedOptions.nocut || isDebug)
 	    {
 			switch (curSong.toLowerCase())
 			{
@@ -1275,11 +1275,11 @@ class PlayState extends MusicBeatState
 				case 'stress':
 					schoolIntro(doof);
 				case 'release':
-					schoolIntro(doof);
+					garIntro(doof);
 				case 'nerves':
 					schoolIntro(doof);
 				case 'headache':
-					schoolIntro(doof);
+					garIntro(doof);
 				case 'casanova':
 					schoolIntro(doof);
 				case 'worship':
@@ -1314,14 +1314,6 @@ class PlayState extends MusicBeatState
 			}
 		
 	    }
-	    else if (OptimizedOptions.nocut)
-	    { 
-		    switch (curSong.toLowerCase())
-            {
-		        default:
-			        startCountdown();
-	 	    }
-		}
 		else
 		{ 
 			switch (curSong.toLowerCase())
@@ -1355,6 +1347,81 @@ class PlayState extends MusicBeatState
 			dad.alpha == 1;
 		});
 	}
+    
+	function garIntro(?dialogueBox:DialogueBox):Void
+		{
+			var black:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			black.scrollFactor.set();
+			add(black);
+	
+			var red:FlxSprite = new FlxSprite(-100, -100).makeGraphic(FlxG.width * 2, FlxG.height * 2, FlxColor.BLACK);
+			red.scrollFactor.set();
+	
+			var sexycutscene:FlxSprite = new FlxSprite();
+			sexycutscene.antialiasing = true;
+			sexycutscene.frames = Paths.getSparrowAtlas('GAR_CUTSCENE');
+			sexycutscene.animation.addByPrefix('video', 'garcutscene', 15, false);
+			sexycutscene.setGraphicSize(Std.int(sexycutscene.width * 2));
+			sexycutscene.scrollFactor.set();
+			sexycutscene.updateHitbox();
+			sexycutscene.screenCenter();
+	
+			if (SONG.song.toLowerCase() == 'nerves' || SONG.song.toLowerCase() == 'release')
+			{
+				remove(black);
+	
+				if (SONG.song.toLowerCase() == 'release')
+				{
+					add(red);
+				}
+			}
+	
+			new FlxTimer().start(0.1, function(tmr:FlxTimer)
+			{
+				black.alpha -= 0.15;
+	
+				if (black.alpha > 0)
+				{
+					tmr.reset(0.1);
+				}
+				else
+				{
+					if (dialogueBox != null)
+					{
+						inCutscene = true;
+	
+						if (SONG.song.toLowerCase() == 'release')
+						{
+							camHUD.visible = false;
+							add(red);
+							add(sexycutscene);
+							sexycutscene.animation.play('video');
+	
+							FlxG.sound.play(Paths.sound('Garcello_Dies'), 1, false, null, true, function()
+								{
+									remove(red);
+									remove(sexycutscene);
+									FlxG.sound.play(Paths.sound('Wind_Fadeout'));
+	
+									FlxG.camera.fade(FlxColor.WHITE, 5, true, function()
+									{
+										add(dialogueBox);
+										camHUD.visible = true;
+									}, true);
+								});
+						}
+						else
+						{
+							add(dialogueBox);
+						}
+					}
+					else
+						startCountdown();
+	
+					remove(black);
+				}
+			});
+		}
 	function assIntro(?dialogueBox:DialogueBox):Void
 	{
 		    var agotiAngry:FlxSprite = new FlxSprite(100, -100);

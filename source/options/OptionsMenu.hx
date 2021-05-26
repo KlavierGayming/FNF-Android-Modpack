@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'practice: off', 'full combo mode: off', 'Optimization Options', 'About'];
+	var menuItems:Array<String> = ['controls', 'set fps', 'downscroll: off', 'practice: off', 'full combo mode: off', 'cutscenes everywhere: off' 'Optimization Options', 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;
@@ -65,6 +65,9 @@ class OptionsMenu extends MusicBeatState
 
 		if (config.getfcmode()){
 		    menuItems[menuItems.indexOf('full combo mode: off')] = 'full combo mode: on';
+		}
+		if (cuteverywhere){
+			menuItems[menuItems.indexOf('cutscenes everywhere: off')] = 'cutscenes everywhere: on'
 		}
 
 		for (i in 0...menuItems.length)

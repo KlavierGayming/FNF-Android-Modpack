@@ -27,7 +27,7 @@ class OptionsMenu extends MusicBeatState
 
 	private var grpControls:FlxTypedGroup<Alphabet>;
 
-	var menuItems:Array<String> = ['remove bgs: off', 'optimized character sprites: off', '' 'About'];
+	var menuItems:Array<String> = ['remove bgs: off', 'optimized character sprites: off', 'remove gf: off', 'remove cutscenes: off', 'no sound in freeplay: off', 'About'];
 	var _pad:FlxVirtualPad;
 
 	var UP_P:Bool;
@@ -44,6 +44,7 @@ class OptionsMenu extends MusicBeatState
 	public var removedbgs:Bool = false;
 	public var optichar:Bool = false;
 	public var nocut:Bool = false;
+	public var nofreeplayshit:Bool = false;
 
 	override function create()
 	{
@@ -59,16 +60,20 @@ class OptionsMenu extends MusicBeatState
 		grpControls = new FlxTypedGroup<Alphabet>();
 		add(grpControls);
 
-		if (config.getdownscroll()){
-			menuItems[menuItems.indexOf('downscroll: off')] = 'downscroll: on';
+		if (gdied){
+			menuItems[menuItems.indexOf('remove gf: off')] = 'remove gf: on';
 		}
 
-		if (config.getpractice()){
-		    menuItems[menuItems.indexOf('practice: off')] = 'practice: on';
+		if (nocut){
+		    menuItems[menuItems.indexOf('remove cutscenes: off')] = 'remove cutscenes: on';
 		}
 
-		if (config.getfcmode()){
-		    menuItems[menuItems.indexOf('full combo mode: off')] = 'full combo mode: on';
+		if (removedbgs){
+		    menuItems[menuItems.indexOf('remove bgs: off')] = 'remove bgs: on';
+		}
+
+		if (optichar){
+			menuItems[menuItems.indexOf('optimized character sprites: off')] = 'optimized character sprites: on';
 		}
 
 		for (i in 0...menuItems.length)
